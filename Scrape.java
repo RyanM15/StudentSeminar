@@ -4,7 +4,8 @@ import java.util.ArrayList;
 import java.io.FileNotFoundException;
 //this is the Scape Class which uses a scanner to scrape the SemData.csv file and parse the info
 public class Scrape{
-	public static void main(String args[]) throws Exception{
+	ArrayList<Student> students = new ArrayList<Student>();
+	public Scrape() throws Exception{
 		//init scanner
 		Scanner sc = new Scanner(new File("SemData.csv"));  
 		//uses both the , and \n as delim
@@ -14,11 +15,13 @@ public class Scrape{
 		String email = "";
 		String name = "";
 		int rank = 0;
-		ArrayList<Integer> choice = new ArrayList<Integer>();
+		
 		
 		//while loop that goes through each person
+		ArrayList<Integer> choice = new ArrayList<Integer>();
 		while(sc.hasNext()){
 			counter++;
+			
 			//each line has certain info at each comma so this parses it based on what comma it is on
 			switch(counter){
 				case 1:
@@ -57,36 +60,50 @@ public class Scrape{
 				case 9:
 				//the last number has a mystery /r on it so i take only the first char
 					choice.add(Integer.parseInt(sc.next().substring(0, 1)));
-					//System.out.println("Choices: " + choice);
+					
 					//make a student class
 					Student s = new Student(email, name, choice, rank);
-					System.out.println(s.toString());
+					
+					students.add(s);
+					
 					//delete values of array list to restart
-					for(int i = 0; i<5;i++){
-						choice.remove(0);
-					}
+					choice = new ArrayList<Integer>();
+				
 					//restart the counter for new line
 					counter = 0;
 					break;
 			}
-			
-			
 		}
-/*
-12/5/2018 13:36
-WadeEdg@myschool.com
-Edgar
-Wade
-1
-2
-16
-15
-9
-*/
-		
 		sc.close();  //closes the scanner  
 	}
 	
+	
+	public void choice2(){
+	
+	//counting array
+		ArrayList<Integer> choiceCounter = new ArrayList<Integer>();//add the counter to this instead of variabless
+		int tempchoiceCount = 0;
+		//counted the choices
+		for (int i = 0; i < 18; i++)
+		{
+			choiceCounter.add(0);
+		}
+		for (int j = 0; j < students.size(); j++)
+		{
+			for(int i = 1; i <= 18; i++)
+			{
+				//assigns coutns eahc choice for each class
+				if (students.get(j).choice.get(0) == i || students.get(j).choice.get(1) == i || students.get(j).choice.get(2) == i || students.get(j).choice.get(3) == i || students.get(j).choice.get(4) == i)
+				{
+					tempchoiceCount = choiceCounter.get(i - 1);
+					choiceCounter.set(i - 1, tempchoiceCount+1);
+					//need to figure out a way to add to the right counter
+				}
+			
+			}
+		}	
+		System.out.print(choiceCounter);
+	}
 
 	
 	
