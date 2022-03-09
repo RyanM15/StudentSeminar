@@ -1,44 +1,50 @@
+import java.util.ArrayList;
+
 public class Choice{
+	
+	
+	
 	
 	public static void main(String[] args)
 	{
-		public int act1 = 0;
-		public int act2 = 0;
-		public int act3 = 0;
-		public int act4 = 0;
-		public int act5 = 0;
-		public int act6 = 0;
-		public int act7 = 0;
-		public int act8 = 0;
-		public int act9 = 0;
-		public int act10 = 0;
-		public int act11 = 0;
-		public int act12 = 0;
-		public int act13 = 0;
-		public int act14 = 0;
-		public int act15 = 0;
-		public int act16 = 0;
-		public int act17 = 0;
-		public int act18 = 0;
+
 		
-		ArrayList<Integer> choice = new ArrayList<Integer>();
+		ArrayList<Integer> choice = new ArrayList<Integer>();//represents a students 5 choices  sam 1,11,8,6,16
 		ArrayList<Integer> choiceCounter = new ArrayList<Integer>();//add the counter to this instead of variabless
 		
-		for(int i = 1; i < size.choice(); i++)
+		choice.add(14);
+		choice.add(2);
+		choice.add(6);
+		choice.add(11);
+		choice.add(1);
+		
+		for (int i = 0; i < 18; i++)
 		{
-			if (choice.get(0) == i || choice.get(1) == i || choice.get(2) == i || choice.get(3) == i || choice.get(4) == i)
-			{
-				//need to figure out a way to add to the right counter
-			}
-			
-			
-			
-			
-			
+			choiceCounter.add(0);
 		}
 		
 		
 		
+		
+		int tempchoiceCount = 0;
+		
+		
+		
+		
+		for(int i = 1; i <= 18; i++)
+		{
+			
+			if (choice.get(0) == i || choice.get(1) == i || choice.get(2) == i || choice.get(3) == i || choice.get(4) == i)
+			{
+				tempchoiceCount = choiceCounter.get(i - 1);
+				choiceCounter.set(i - 1, tempchoiceCount+1);
+				//need to figure out a way to add to the right counter
+			}
+			
+		}
+		
+		
+		System.out.print(choiceCounter);
 		
 		
 		
