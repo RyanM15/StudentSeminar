@@ -13,7 +13,7 @@ public class Scrape{
 		//info holder
 		String email = "";
 		String name = "";
-		String minute = "";
+		int rank = 0;
 		ArrayList<Integer> choice = new ArrayList<Integer>();
 		
 		//while loop that goes through each person
@@ -22,44 +22,45 @@ public class Scrape{
 			//each line has certain info at each comma so this parses it based on what comma it is on
 			switch(counter){
 				case 1:
-					minute = sc.next();
-					System.out.println("Date: " + minute);
+					sc.next();
+					rank++;
+					//System.out.println("Rank: " + rank);
 					break;
 				case 2:
 					email = sc.next();
-					System.out.println("Email: " + email);
+					//System.out.println("Email: " + email);
 					break;
-          //3-4 are first and last name
 				case 3:
 					name = sc.next();
 					break;
 				case 4:
 					name = name + " " + sc.next();
-					System.out.println("Name: " + name);
+					//System.out.println("Name: " + name);
 					break;
-					//5-9 are choices
+					
 				case 5:
 					choice.add(Integer.parseInt(sc.next()));
-					System.out.println("Choices: " + choice);
+					//System.out.println("Choices: " + choice);
 					break;
 				case 6:
 					choice.add(Integer.parseInt(sc.next()));
-					System.out.println("Choices: " + choice);
+					//System.out.println("Choices: " + choice);
 					break;
 				case 7:
 					choice.add(Integer.parseInt(sc.next()));
-					System.out.println("Choices: " + choice);
+					//System.out.println("Choices: " + choice);
 					break;
 				case 8:
 					choice.add(Integer.parseInt(sc.next()));
-					System.out.println("Choices: " + choice);
+					//System.out.println("Choices: " + choice);
 					break;
 				case 9:
 				//the last number has a mystery /r on it so i take only the first char
 					choice.add(Integer.parseInt(sc.next().substring(0, 1)));
-					System.out.println("Choices: " + choice);
+					//System.out.println("Choices: " + choice);
 					//make a student class
-					Student s = new Student(email, name, choice, minute);
+					Student s = new Student(email, name, choice, rank);
+					System.out.println(s.toString());
 					//delete values of array list to restart
 					for(int i = 0; i<5;i++){
 						choice.remove(0);
