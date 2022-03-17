@@ -15,8 +15,6 @@ public class Scrape{
 		String email = "";
 		String name = "";
 		int rank = 0;
-		
-		
 		//while loop that goes through each person
 		ArrayList<Integer> choice = new ArrayList<Integer>();
 		while(sc.hasNext()){
@@ -77,9 +75,8 @@ public class Scrape{
 		sc.close();  //closes the scanner  
 	}
 	
-	
-	public void choice2(){
-	
+	//counts the number of choices of total students
+	public void countChoices(){
 	//counting array
 		ArrayList<Integer> choiceCounter = new ArrayList<Integer>();//add the counter to this instead of variabless
 		int tempchoiceCount = 0;
@@ -99,11 +96,11 @@ public class Scrape{
 					choiceCounter.set(i - 1, tempchoiceCount+1);
 					//need to figure out a way to add to the right counter
 				}
-			
 			}
 		}	
 		System.out.print(choiceCounter);
 	}
+	
 
 	
 	
