@@ -1,5 +1,10 @@
-Daniel and Ryan are doing the student seminar project and splitting the work. As of today Daniel has been foccusing and working on scraping the excel sheet so it is
-able to be printed into our java code. Ryan has created a student class to add variables to a contructor to be able to add the student info to our ArrayLists.
-Ryan also created a format for the final product to be printed as, as well as a student class tester to make sure it worked. Ryan also began working on the choice 
-class that will enable us to set all choices to an arrayList in order to determine if their are over 45 people in one activity so we can save code and time trying 
-to fix the problems.
+#DO NOT GRADE // NOT FINISHED YET
+
+#What we have done:
+ - scrape data DANIEL
+ - format scraped data DANIEL
+ - pass data through to student class DANIEL
+ - student class RYAN
+ - print out finished arrays RYAN
+ - count number of students wanting each session RYAN
+
