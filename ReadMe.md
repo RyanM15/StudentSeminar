@@ -25,7 +25,7 @@
 
 They both added comments throughout
 
-**Our basic idea**
+**Our basic idea:**
 To try and optimize the students happiness and the scheduling, Ryan wrote code to count the people who chose each seminar while Daniel came up with a solution.
 In short, the top few coveted seminars are presented twice and the schedule is formatted to guarentee no overlaps in time slots. If a student does not get a certain seminar, they are randomly placed in one of the least populated seminars.
 
