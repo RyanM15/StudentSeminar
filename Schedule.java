@@ -1,4 +1,4 @@
-//this class is the meat of the program and creates seminars, adds students, and creates the schedule.
+//this class is the meat of the program and creates seminars, adds students, and creates the schedule and shows schedule.
 import java.util.ArrayList;
 public class Schedule{
     ArrayList<Student> students;
@@ -33,7 +33,7 @@ public class Schedule{
     }
 
 
-    
+
     	//counts the number of choices of total students
 	public void countChoices(){
 	    //counting array
