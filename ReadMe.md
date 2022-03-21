@@ -20,6 +20,7 @@
 - Ryan also outlined a method for formatting the finished product
 - Daniel finished scraping the data into a Student array while Ryan finished up working on totaling the wantedness of each seminar
 - Ryan and Daniel then brainstormed with some other groups on ways to tackle the actual assigning of students to a seminar with minimal conflicts
+- They quickly realized they would need to account for time slot overlaps, overflow in students, and other variables
 - With the help of Ryan's code, Daniel began working on the actual implementation
 - Daniel finished Schedule.java and UI
 
