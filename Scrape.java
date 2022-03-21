@@ -7,9 +7,9 @@ public class Scrape{
 	ArrayList<Student> students = new ArrayList<Student>();
 	public Scrape() throws Exception{
 		//init scanner
-		Scanner sc = new Scanner(new File("SemData.csv"));  
+		Scanner sc = new Scanner(new File("Data1.csv"));  
 		//uses both the , and \n as delim
-		sc.useDelimiter(",|\n");    
+		sc.useDelimiter(",");    
 		int counter = 0;
 		//info holder
 		String email = "";
@@ -56,12 +56,12 @@ public class Scrape{
 					//System.out.println("Choices: " + choice);
 					break;
 				case 9:
-				//the last number has a mystery /r on it so i take only the first char
-					choice.add(Integer.parseInt(sc.next().substring(0, 1)));
+				//i used to have to account for \r but instead i formatted the csv differently
+					choice.add(Integer.parseInt(sc.next()));
 					
 					//make a student class
 					Student s = new Student(email, name, choice, rank);
-					
+					//System.out.println(s);
 					students.add(s);
 					
 					//delete values of array list to restart
@@ -74,35 +74,8 @@ public class Scrape{
 		}
 		sc.close();  //closes the scanner  
 	}
-	
-	//counts the number of choices of total students
-	public void countChoices(){
-	//counting array
-		ArrayList<Integer> choiceCounter = new ArrayList<Integer>();//add the counter to this instead of variabless
-		int tempchoiceCount = 0;
-		//counted the choices
-		for (int i = 0; i < 18; i++)
-		{
-			choiceCounter.add(0);
-		}
-		for (int j = 0; j < students.size(); j++)
-		{
-			for(int i = 1; i <= 18; i++)
-			{
-				//assigns coutns eahc choice for each class
-				if (students.get(j).choice.get(0) == i || students.get(j).choice.get(1) == i || students.get(j).choice.get(2) == i || students.get(j).choice.get(3) == i || students.get(j).choice.get(4) == i)
-				{
-					tempchoiceCount = choiceCounter.get(i - 1);
-					choiceCounter.set(i - 1, tempchoiceCount+1);
-					//need to figure out a way to add to the right counter
-				}
-			}
-		}	
-		System.out.print(choiceCounter);
-	}
-	
 
-	
-	
+    public ArrayList<Student> getStudents(){
+        return students;
+    }
 }
-
