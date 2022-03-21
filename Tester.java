@@ -1,4 +1,4 @@
-//generic tester and basic UI will be added
+//generic tester that shows UI and call and creates Schedule
 import java.util.Scanner;  
 import java.util.ArrayList;
 public class Tester{
