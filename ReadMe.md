@@ -2,7 +2,7 @@
 
 **What we have done:**
  - Scrape.java and Data1.csv DANIEL
- - - ReadMe.md RYAN
+ - ReadMe.md RYAN
  - createRooms() DANIEL
  - Student.java RYAN
  - assignStudents() DANIEL
