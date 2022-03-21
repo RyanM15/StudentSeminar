@@ -4,7 +4,7 @@ public class Schedule{
     ArrayList<Student> students;
     ArrayList<Integer> choiceCounter;
     ArrayList<Integer> rankedChoices;
-    ArrayList<ArrayList<ArrayList<Student>>> schedule;
+    ArrayList<ArrayList<ArrayList<Integer>>> schedule;
     ArrayList<Integer> unassigned;
 
     public ArrayList<ArrayList<Integer>> seminars;
@@ -20,8 +20,20 @@ public class Schedule{
         seminars = new ArrayList<ArrayList<Integer>>();
         //people who miss out of preffered classes
         unassigned = new ArrayList<Integer>();
+        
+        //makes schedule array list and adds placeholder arrays
+        schedule = new ArrayList<ArrayList<ArrayList<Integer>>>();
+        for(int i = 0; i<6; i++){
+            schedule.add(new ArrayList<ArrayList<Integer>>());
+            for(int k = 0; k<5; k++){
+                schedule.get(i).add(new ArrayList<Integer>());
+            }
+        }
 
     }
+
+
+    
     	//counts the number of choices of total students
 	public void countChoices(){
 	    //counting array
@@ -66,7 +78,11 @@ public class Schedule{
         }
 	}
 
+
+
+
     //creates the rooms for the classes (30 of them) in order of their wantedness based on rankedChoices
+    //for this entire program, seminars are identified by the first element in their array list (ie. seminar 2 is [2, x, x, x, etc.])
     public void createRooms(){
         for(int i = 0; i<30;i++){
             seminars.add(new ArrayList<Integer>());
@@ -74,6 +90,9 @@ public class Schedule{
             seminars.get(i).add(rankedChoices.get(i%18));
         }
 	}
+
+
+
 
     //assigns students to certain seminars based on their preferences 
     public void assignStudents(){
@@ -121,6 +140,66 @@ public class Schedule{
                 }
             }
         }
-        System.out.println("\n This is the schedule not formatted: \n" + seminars);
+
+        //if one of the seminars have no people in them, change the seminar id (aka the first element in the array) to -1
+        for(int i = 0; i<seminars.size();i++){
+            if(seminars.get(i).size() ==1){
+                seminars.get(i).remove(0);
+                seminars.get(i).add(-1);
+            }
+        }
+        //System.out.println("\n This is the schedule not formatted: \n" + seminars);
+    }
+
+
+
+    //adds the seminars to the schedule array list, theres no overlapping times
+    public void makeSchedule(){
+        int counter = 0;
+        for(int i = 0; i<6; i++){
+            for(int k = 0; k<5; k++){
+                schedule.get(i).get(k).add(seminars.get(counter).get(0));
+                counter++;//counter is used to make sure all seminars are placed
+                
+            }
+        }
+        
+    }
+
+
+
+    //system.out.prints the schedule made above, accounting for spacing
+    public void printSchedule(){
+        for(int i = 0; i<6; i++){
+            for(int k = 0; k<5; k++){
+                if(schedule.get(i).get(k).get(0) >= 10 || schedule.get(i).get(k).get(0) == -1){
+                    System.out.print(schedule.get(i).get(k).get(0) + " ");
+                }else{
+                    System.out.print(schedule.get(i).get(k).get(0) + "  ");
+                } 
+            }
+            System.out.println("");
+        }
+    }
+
+
+
+    //this lists all seminars and the students in them
+    public void showSeminars(){
+        for(int i = 0; i<seminars.size(); i++){
+            //if the seminar has people in it them do this 
+            if(seminars.get(i).get(0) != -1){
+                if(i>17){//prints out if the class printed is the 2nd occurence
+                    System.out.print("Seminar ID " + seminars.get(i).get(0) + " (2nd time): ");
+                }else{
+                    System.out.print("Seminar ID " + seminars.get(i).get(0) + ": ");
+                }
+                //formatting
+                for(int k = 1; k<seminars.get(i).size(); k++){
+                System.out.print(seminars.get(i).get(k) + ", ");
+                }
+                System.out.println("");
+            }
+        }
     }
 }
