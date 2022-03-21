@@ -12,7 +12,7 @@
  - printSchedule() DANIEL
  - StudentTester.java RYAN
  - showSeminars() DANIEL
- - titied and combined DANIEL
+ - titied and combined, Tester.java DANIEL
 
 **Timeline of our project:**
 - Ryan and Daniel brainstormed the workload and methods on an IPad
