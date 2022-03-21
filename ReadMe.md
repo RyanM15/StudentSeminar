@@ -9,7 +9,7 @@
  - count number of students wanting each session RYAN
  - assigned and scheduled the students and seminars DANIEL
 
-**Timeline of our project:
+**Timeline of our project:**
 - Ryan and Daniel brainstormed the workload and methods on an IPad
 - Then Daniel worked on scraping the csv file while Ryan worked on the Student Class
 - Ryan also outlined a method for formatting the finished product
